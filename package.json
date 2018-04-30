@@ -1,0 +1,33 @@
+{
+  "name": "gulp-boostrap-starterkit",
+  "version": "1.0.0",
+  "description": "Gulp Bootstrap Sass FontAwesome starterKit",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laureenpe/gulp-boostrap-starterKit.git"
+  },
+  "author": "Laura Pelaez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/laureenpe/gulp-boostrap-starterKit/issues"
+  },
+  "homepage": "https://github.com/laureenpe/gulp-boostrap-starterKit#readme",
+  "dependencies": {
+    "bootstrap": "^4.1.0",
+    "jquery": "^3.3.0",
+    "popper.js": "^1.14.3"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.23.7",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.9.0",
+    "gulp-cli": "^2.0.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-minify": "^1.0.0",
+    "gulp-sass": "^4.0.1"
+  }
+}
