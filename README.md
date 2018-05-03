@@ -10,8 +10,8 @@ Install with npm:
     -  gulp-concat: 2.6.1,
     -  gulp-minify: 1.0.0,
     -  gulp-sass: 3.1.0,
+    -  gulp-imagemin: 2.4.0
    
-
 ###  Dev Dependencies
     - font-awesome: 4.7.0,
     - popper.js : 1.14.3
@@ -19,6 +19,7 @@ Install with npm:
 ###  Production Dependencies 
     - jQuery v.3.3.0,
     - bootstrap: 4.1.0,
+
 
 
 
