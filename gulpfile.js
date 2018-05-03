@@ -13,7 +13,7 @@ gulp.task('sass', () => {
 	return gulp.src([
 		'node_modules/bootstrap/dist/css/bootstrap.css',
 		'node_modules/swiper/dist/css/swiper.min.css',
-		'src/scss/*.scss'
+		'src/scss/main.scss'
 	])
 		.pipe(sass().on('error', sass.logError))
 		.pipe(cleanCSS({ compatibility: 'ie8' }))
