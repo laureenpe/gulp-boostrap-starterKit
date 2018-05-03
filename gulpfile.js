@@ -1,12 +1,14 @@
 'use strict'
 
-// dependencies
+// requerimos las dependencia
 const gulp = require('gulp');
 const browserSync = require('browser-sync');
 const sass = require('gulp-sass');
-var minify = require('gulp-minify');
-var concat = require('gulp-concat');
-var cleanCSS = require('gulp-clean-css');
+const minify = require('gulp-minify');
+const concat = require('gulp-concat');
+const cleanCSS = require('gulp-clean-css');
+const imagemin = require('gulp-imagemin');
+
 
 
 gulp.task('sass', () => {
@@ -21,7 +23,7 @@ gulp.task('sass', () => {
 			outputStyle: 'compressed'
 		}))
 		.pipe(concat('style.min.css'))
-		.pipe(gulp.dest('build/css'))
+		.pipe(gulp.dest('Public/css'))
 		.pipe(browserSync.stream());
 });
 
@@ -35,21 +37,31 @@ gulp.task('js', () => {
 	])
 		.pipe(concat('script.js'))
 		.pipe(minify())
-		.pipe(gulp.dest('build/js'))
+		.pipe(gulp.dest('Public/js'))
 		.pipe(browserSync.stream());
 });
 
+// Optimizes the images that exists
+gulp.task('images', () =>
+    gulp.src('src/images/**')
+        .pipe(imagemin())
+        .pipe(gulp.dest('Public/images'))
+);
 gulp.task('serve', ['sass'], () => {
 	browserSync.init({
-		server: './build/'
+		server: './Public/'
 	});
 
 	gulp.watch([
 		'src/scss/*.scss'
 	], ['sass']);
 
-	gulp.watch('build/*.html').on('change', browserSync.reload);
+	gulp.watch('Public/*.html').on('change', browserSync.reload);
+	 // Watch image files
+	 gulp.watch('src/images/**/*', ['images', browserSync.reload]);
 
 });
 
-gulp.task('default', ['js', 'serve'])
+
+
+gulp.task('default', ['js', 'images','serve'])
