@@ -8,7 +8,7 @@ const minify = require('gulp-minify');
 const concat = require('gulp-concat');
 const cleanCSS = require('gulp-clean-css');
 const imagemin = require('gulp-imagemin');
-
+ 
 
 
 gulp.task('sass', () => {
@@ -40,6 +40,35 @@ gulp.task('js', () => {
 		.pipe(gulp.dest('Public/js'))
 		.pipe(browserSync.stream());
 });
+//copy html
+
+// Configuration
+var configuration = {
+    paths: {
+        src: {
+			html: './src/templates/*.html',
+			fonts: './src/font/**',
+			fontface:'./src/fonts.css',
+        },
+		dist: './Public'
+		
+    }
+};
+
+// Gulp task to copy HTML files to output directory
+gulp.task('html', function() {
+    gulp.src(configuration.paths.src.html)
+        .pipe(gulp.dest(configuration.paths.dist));
+});
+// Gulp task to copy Font files to output directory
+gulp.task('fonts', function() {
+    gulp.src(configuration.paths.src.fonts)
+	.pipe(gulp.dest(configuration.paths.dist + '/css/font'))
+});
+gulp.task('fontface', function() {
+    gulp.src(configuration.paths.src.fontface)
+	.pipe(gulp.dest(configuration.paths.dist + '/css/'))
+});
 
 // Optimizes the images that exists
 gulp.task('images', () =>
@@ -52,16 +81,15 @@ gulp.task('serve', ['sass'], () => {
 		server: './Public/'
 	});
 
-	gulp.watch([
-		'src/scss/*.scss'
-	], ['sass']);
-
-	gulp.watch('Public/*.html').on('change', browserSync.reload);
+	gulp.watch(['src/scss/*.scss'], ['sass']);
+	gulp.watch('src/js/*.js', ['js']);
+	gulp.watch('src/templates/*.html', ['html']);
+	gulp.watch('src/templates/*.html').on('change', browserSync.reload);
 	 // Watch image files
 	 gulp.watch('src/images/**/*', ['images', browserSync.reload]);
 
 });
 
 
-
-gulp.task('default', ['js', 'images','serve'])
+// Gulp default task
+gulp.task('default', ['js', 'images','serve','html','fonts','fontface'])
