@@ -4,3 +4,4 @@
 node_modules/
 Files
 wordpress/
+package-lock.json
