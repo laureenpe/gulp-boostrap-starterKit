@@ -1,32 +1,31 @@
-# Bootstrap Gulp Sass 
+# Bootstrap Gulp Sass
+
 # Starter kit
+
 ### Technical Requirements
 
-Install with npm: 
+Install with npm:
 
-###  Development Dependencies
-    -  gulp: 3.9.1,
-    -  gulp-clean-css: 3.9.0,
-    -  gulp-concat: 2.6.1,
-    -  gulp-minify: 1.0.0,
-    -  gulp-sass: 3.1.0,
-    -  gulp-imagemin: 2.4.0
-   
-###  Dev Dependencies
-    - font-awesome: 4.7.0,
-    - popper.js : 1.14.3
+### devDependencies
 
-###  Production Dependencies 
-    - jQuery v.3.3.0,
+    - browser-sync: 2.23.7,
+    - gulp: 3.9.1,
+    - gulp-clean-css: 3.9.0,
+    - gulp-cli: 2.0.1,
+    - gulp-concat: 2.6.1,
+    - gulp-imagemin: 2.4.0,
+    - gulp-minify: 1.0.",
+    - gulp-sass: 4.0.1
+
+### Dependencies
+
     - bootstrap: 4.1.0,
-
-
-
+    - gulp-htmlmin: "4.0.0,
+    - jquery": 3.3.0,
+    - popper.js": ^.14.3
 
 ### Development environment
 
 - Clone repository.
 - Positioned in our project run npm install to download and install all the dependencies used.
-- run  $ gulp
-
-
+- run $ gulp
